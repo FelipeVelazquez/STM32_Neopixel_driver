@@ -108,6 +108,7 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 {
     if (htim->Instance == TIM1)
     {
+        HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
         __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
         neopixel_busy = false;
     }
